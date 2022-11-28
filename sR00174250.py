@@ -39,6 +39,8 @@ df = pd.read_csv("movie_metadata.csv", encoding="ISO-8859-1")
 #     plt.xlabel('Mean Type')
 #     plt.ylabel('Imdb Mean No.')
 #     plt.bar(mean_labels, means, bar_width, color='b')
+#     # first, second actor/directors & null relatively similar means with third being the lowest
+#     # meaning if director is third actor movie won't be as critically acclaimed
 #     plt.show()
 #
 #
@@ -92,13 +94,14 @@ df = pd.read_csv("movie_metadata.csv", encoding="ISO-8859-1")
 #
 #
 # Task2()
-# def Task3():
-#     genres = df['genres'].str.str
-#     print(genres)
-#
-#
-#
-# Task3()
+
+def Task3():
+    genres = df['genres'].str.strip('|')
+    print(genres)
+
+
+
+Task3()
 # def Task4():
 #
 #
