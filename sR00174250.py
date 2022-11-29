@@ -35,8 +35,8 @@ df = pd.read_csv("movie_metadata.csv", encoding="ISO-8859-1")
 #     bar_width = 0.25
 #     mean_labels = ["First", "Second", "Third", "Null"]
 #     means = [int(first_mean), int(second_mean), int(third_mean), int(null_mean)]
-#     plt.legend('Imdb Mean')
-#     plt.xlabel('Mean Type')
+#     plt.title('Average Imdb Scores')
+#     plt.xlabel('Director as Actor')
 #     plt.ylabel('Imdb Mean No.')
 #     plt.bar(mean_labels, means, bar_width, color='b')
 #     # first, second actor/directors & null relatively similar means with third being the lowest
@@ -83,25 +83,41 @@ df = pd.read_csv("movie_metadata.csv", encoding="ISO-8859-1")
 #
 #     # Bar chart to compare values
 #     bar_width = 0.45
-#     movies = ["Color", "Black & White"]
-#     color_comparison = [int(color_count), int(black_count)]
-#     plt.legend(['Black & White Vs Movies in Color'])
+#     movie_color = ["Black & White", "Color"]
+#     color_comparison = [int(black_count), int(color_count)]
+#     plt.title('Black & White Vs Movies in Color')
 #     plt.xlabel('Movie Type')
 #     plt.ylabel('No. of Movies')
-#     plt.bar(movies, color_comparison, bar_width, color='b')
+#     plt.bar(movie_color, color_comparison, bar_width, color='b')
 #     # Color movies a lot more present than black & white movies
 #     plt.show()
 #
 #
+#
 # Task2()
 
-def Task3():
-    genres = df['genres'].str.strip('|')
-    print(genres)
-
-
-
-Task3()
+# def Task3():
+#     genres = df['genres'].str.split('|')
+#     genres = genres.explode('genres')
+#     # unique genres
+#     unique = genres.unique()
+#     genres = genres.value_counts()
+#     # 5 most popular genres
+#     genres = genres.nlargest(5)
+#
+#     # Bar chart to compare genres
+#     bar_width = 0.45
+#     genre_labels = ["Drama", "Comedy", "Thriller", "Action", "Romance"]
+#     genre_total = [genres[0], genres[1], genres[2], genres[3], genres[4]]
+#     plt.title('5 Most Popular Genres')
+#     plt.xlabel('Genre')
+#     plt.ylabel('No. of Genres')
+#     plt.bar(genre_labels, genre_total, bar_width, color='b')
+#     # Color movies a lot more present than black & white movies
+#     plt.show()
+#
+#
+# Task3()
 # def Task4():
 #
 #
@@ -125,8 +141,6 @@ Task3()
 #     a = sub1.median()
 #     b = sub2.median()
 #
-#     print(a)
-#     print(b)
 #
 #
 #
