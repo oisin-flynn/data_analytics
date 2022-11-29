@@ -113,35 +113,57 @@ df = pd.read_csv("movie_metadata.csv", encoding="ISO-8859-1")
 #     plt.xlabel('Genre')
 #     plt.ylabel('No. of Genres')
 #     plt.bar(genre_labels, genre_total, bar_width, color='b')
-#     # Color movies a lot more present than black & white movies
+#     # Assuming were showing 5 most popular genres
 #     plt.show()
 #
 #
 # Task3()
 # def Task4():
+#     movie_length = df['length'].dropna()
+#     movie_length = movie_length[pd.to_numeric(df['length'], errors='coerce').notnull()]
+#     min = movie_length.min()
+#     max = movie_length.max()
+#     median = movie_length.median()
+#     first_quartile = movie_length.quantile(0.25)
+#     third_quartile = movie_length.quantile(0.75)
+#     # movie_length = movie_length.describe()
+#
+#     # part b
+#     df1 = pd.Series([min, max, median, first_quartile, third_quartile])
+#     dict = {'b': df1}
+#     dfb = pd.DataFrame(dict)
+#     dfb.boxplot()
+#     plt.show()
+#
+#     # TODO part c
 #
 #
 #
 #
-#
-#
-#
-# def Task5():
-#     # find median
-#     c = df['budget'].median()
-#
-#     # put median in null cells
-#     df['budget'] = df['budget'].fillna(c)
-#
-#     # above and below median subgroups
-#     sub1 = df[df['budget'] < c][['budget']]
-#
-#     sub2 = df[df['budget'] > c][['budget']]
-#
-#     a = sub1.median()
-#     b = sub2.median()
-#
-#
-#
-#
-# Task5()
+# Task4()
+def Task5():
+    # find median
+    c = df['budget'].median()
+
+    # put median in null cells
+    df['budget'] = df['budget'].fillna(c)
+
+    # above and below median subgroups
+    sub1 = df[df['budget'] < c][['budget']]
+
+    sub2 = df[df['budget'] > c][['budget']]
+
+    a = sub1.median()
+    b = sub2.median()
+
+    # TODO fix histogram
+    dfh = pd.DataFrame(a, b, columns=['a', 'b'])
+    dfh.hist()
+    plt.title("Target Budget")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
+    plt.show()
+
+
+
+Task5()
